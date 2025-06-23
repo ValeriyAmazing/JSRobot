@@ -1,164 +1,503 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>JSRobot - Вход</title>
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Roboto:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Roboto:300,400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
     <!-- Иконки и фавиконы -->
-    <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-    <link rel="manifest" href="icon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="icon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="icon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="icon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="icon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="icon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="icon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="icon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="icon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="icon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="icon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="icon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#282a36" />
+
     <style>
-        body {
-            background-color: #282a36;
-            color: #f8f8f2;
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+      body {
+        background-color: #282a36;
+        color: #f8f8f2;
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .login-container {
+        background-color: rgba(68, 71, 90, 0.85);
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        width: 380px;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 121, 198, 0.2);
+        transform: translateY(0);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        animation: fadeIn 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .login-container:hover {
+        /* transform: translateY(-5px); */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .robot-wrapper {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .robot-wrapper::before,
+      .robot-wrapper::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(189, 147, 249, 0.1);
+        z-index: -1;
+      }
+
+      .robot-wrapper::before {
+        top: -10px;
+        left: -15px;
+        animation: pulse 3s infinite alternate;
+      }
+
+      .robot-wrapper::after {
+        bottom: 10px;
+        right: -15px;
+        animation: pulse 4s infinite alternate-reverse;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.3;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.3;
+        }
+      }
+
+      .robot-image {
+        width: 140px;
+        margin-bottom: 0;
+        animation: float 6s ease-in-out infinite;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        transition: transform 0.3s ease;
+      }
+
+      .robot-image:hover {
+        transform: scale(1.05) rotate(5deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      h1 {
+        color: #ff79c6;
+        margin-bottom: 25px;
+        font-size: 36px;
+        text-shadow: 0 2px 10px rgba(255, 121, 198, 0.4);
+        letter-spacing: 1px;
+        position: relative;
+        display: inline-block;
+      }
+
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff79c6, #bd93f9);
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+      }
+
+      h1:hover::after {
+        width: 80%;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+        position: relative;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #8be9fd;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        transition: color 0.3s;
+      }
+
+      .form-group:focus-within label {
+        color: #50fa7b;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid rgba(139, 233, 253, 0.3);
+        border-radius: 6px;
+        background-color: rgba(40, 42, 54, 0.8);
+        color: #f8f8f2;
+        font-family: "Roboto Mono", monospace;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+      }
+
+      .input-focus-effect {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #50fa7b, #8be9fd);
+        transition: width 0.3s ease;
+        z-index: 2;
+      }
+
+      .form-group:focus-within .input-focus-effect {
+        width: 100%;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #50fa7b;
+        box-shadow: 0 0 10px rgba(80, 250, 123, 0.3);
+        outline: none;
+      }
+
+      button {
+        background-color: #50fa7b;
+        color: #282a36;
+        border: none;
+        border-radius: 6px;
+        padding: 14px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 15px;
+        width: 100%;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(80, 250, 123, 0.3);
+      }
+
+      button span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .button-effect {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      button:hover .button-effect {
+        left: 100%;
+      }
+
+      button:hover {
+        background-color: #5af78e;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(80, 250, 123, 0.4);
+      }
+
+      button:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 10px rgba(80, 250, 123, 0.2);
+      }
+
+      button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(20, 20);
+          opacity: 0;
+        }
+      }
+
+      button:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+      }
+
+      .error-message {
+        color: #ff5555;
+        margin-top: 15px;
+        font-size: 14px;
+        display: none;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: rgba(255, 85, 85, 0.1);
+        border-left: 3px solid #ff5555;
+        animation: shake 0.5s ease-in-out;
+        transform-origin: center center;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-5px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Адаптивность для мобильных устройств */
+      @media (max-width: 480px) {
         .login-container {
-            background-color: #44475a;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
+          width: 90%;
+          padding: 30px 20px;
         }
-        
-        .robot-image {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-        
+
         h1 {
-            color: #ff79c6;
-            margin-bottom: 20px;
+          font-size: 28px;
         }
-        
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
+
+        .robot-image {
+          width: 120px;
         }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #8be9fd;
-        }
-        
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #282a36;
-            color: #f8f8f2;
-            font-family: 'Roboto Mono', monospace;
-        }
-        
-        button {
-            background-color: #50fa7b;
-            color: #282a36;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-            width: 100%;
-        }
-        
-        button:hover {
-            background-color: #5af78e;
-        }
-        
-        .error-message {
-            color: #ff5555;
-            margin-top: 15px;
-            font-size: 14px;
-            display: none;
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="login-container">
-        <img src="images/robot1.png" alt="JSRobot" class="robot-image">
-        <h1>JSRobot</h1>
-        <div id="login-form">
-            <div class="form-group">
-                <label for="username">Имя пользователя:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="button" id="login-button">Войти</button>
-            <div id="error-message" class="error-message">Неверное имя пользователя или пароль</div>
+      <div class="robot-wrapper">
+        <img src="images/robot1.png" alt="JSRobot" class="robot-image" />
+      </div>
+      <h1>JSRobot</h1>
+      <div id="login-form">
+        <div class="form-group">
+          <label for="username">Имя пользователя:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            autocomplete="username"
+          />
+          <span class="input-focus-effect"></span>
         </div>
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            autocomplete="current-password"
+          />
+          <span class="input-focus-effect"></span>
+        </div>
+        <button type="button" id="login-button">
+          <span>Войти</span>
+          <div class="button-effect"></div>
+        </button>
+        <div id="error-message" class="error-message">
+          Неверное имя пользователя или пароль
+        </div>
+      </div>
     </div>
-    
+
     <script src="scripts/auth.js"></script>
+    <script src="scripts/particles.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Проверяем, авторизован ли пользователь
-            if (Auth.isAuthenticated()) {
-                // Если авторизован, перенаправляем на главную страницу
-                window.location.href = 'index.html';
-                return;
+      document.addEventListener("DOMContentLoaded", function () {
+        // Проверяем, авторизован ли пользователь
+        if (Auth.isAuthenticated()) {
+          // Если авторизован, перенаправляем на главную страницу
+          window.location.href = "index.html";
+          return;
+        }
+
+        // Обработчик нажатия кнопки входа
+        document
+          .getElementById("login-button")
+          .addEventListener("click", function () {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (!username || !password) {
+              document.getElementById("error-message").style.display = "block";
+              return;
             }
-            
-            // Обработчик нажатия кнопки входа
-            document.getElementById('login-button').addEventListener('click', function() {
-                var username = document.getElementById('username').value;
-                var password = document.getElementById('password').value;
-                
-                if (!username || !password) {
-                    document.getElementById('error-message').style.display = 'block';
-                    return;
-                }
-                
-                Auth.authenticate(username, password, function(success, user) {
-                    if (success) {
-                        // Перенаправляем на главную страницу
-                        window.location.href = 'index.html';
-                    } else {
-                        // Показываем сообщение об ошибке
-                        document.getElementById('error-message').style.display = 'block';
-                    }
-                });
+
+            Auth.authenticate(username, password, function (success, user) {
+              if (success) {
+                // Перенаправляем на главную страницу
+                window.location.href = "index.html";
+              } else {
+                // Показываем сообщение об ошибке
+                document.getElementById("error-message").style.display =
+                  "block";
+              }
             });
-            
-            // Обработчик нажатия Enter в полях ввода
-            document.getElementById('password').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    document.getElementById('login-button').click();
-                }
-            });
-        });
+          });
+
+        // Обработчик нажатия Enter в полях ввода
+        document
+          .getElementById("password")
+          .addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              document.getElementById("login-button").click();
+            }
+          });
+      });
     </script>
-</body>
+  </body>
 </html>
