@@ -708,6 +708,7 @@ transition: background 0.1s, color 0.3s;
 	margin: -5px 0 -5px 0;
 	border-bottom: 2px transparent solid;
 	transition: border 0.1s;
+	box-sizing:border-box;
 }
 
 #files ul li a input:focus{
