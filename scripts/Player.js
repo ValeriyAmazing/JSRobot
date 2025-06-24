@@ -167,6 +167,7 @@ var player = new Behavior(function(bodyPriv, bodyPubl){
 
 	var requires = `
 		var __requires__ = {};
+
 		require = function(a){
 			if(a in __requires__){
 				return __requires__[a];
@@ -176,6 +177,7 @@ var player = new Behavior(function(bodyPriv, bodyPubl){
 			return {};
 		};
 		var __requirefiles__ = Files.files();
+console.log("Доступные файлы:", __requirefiles__);
 		for(var i = 1; i < __requirefiles__.length; i++){
 			var mod = Files.file(i);
 			if(mod !== null && typeof(mod) == 'object' && 'text' in mod){
